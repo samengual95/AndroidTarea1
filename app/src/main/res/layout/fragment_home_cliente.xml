@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tecnoinfsanjose.tareaandroiduno.HomeCliente"
+    android:theme="@style/AppTheme.NoActionBar"
+    android:background="@color/colorFondo">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_fragment_home_cliente"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorFondoToolbar"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:shadowColor="@color/colorFondo"
+        android:textAllCaps="false"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/colorLogout"
+        android:textColor="@color/colorBlanco"
+        android:text="@string/boton_logout" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:textColor="@color/colorGristClaro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_fragment_home_cliente"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="178dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="@string/boton_seleccionar_fecha"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="58dp"
+        android:text="@string/boton_siguiente"
+        android:textAllCaps="false" />
+
+    <!-- TODO: Update blank fragment layout -->
+
+</RelativeLayout>

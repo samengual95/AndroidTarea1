@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tecnoinfsanjose.tareaandroiduno.CancelarEmpleado"
+    android:theme="@style/AppTheme.NoActionBar"
+    android:background="@color/colorFondo">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_fragment_confirmar_empleado"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorFondoToolbar"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="wrap_content"
+        android:contentDescription="@string/img_atras"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorFondoToolbar"
+        android:src="@drawable/atras_toolbar" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/img_usuarios"
+        android:layout_below="@+id/toolbar_fragment_confirmar_empleado"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="83dp"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorGristClaro"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorGristClaro"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_below="@+id/textView6"
+        android:layout_marginTop="35dp"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:text="@string/boton_cancelar"
+        android:textAllCaps="false" />
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+</RelativeLayout>

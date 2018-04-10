@@ -1,0 +1,178 @@
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tecnoinfsanjose.tareaandroiduno.Registrarse"
+    android:background="@android:color/background_light" >
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_fragment_registrarse"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorFondoToolbar"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorFondoToolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/img_confirmar"
+        android:src="@drawable/confirmar_toolbar" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:background="@color/colorFondoToolbar"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:contentDescription="@string/img_atras"
+        android:src="@drawable/atras_toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar_fragment_registrarse"
+        android:id="@+id/scrollView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editText3"
+                android:textColor="@color/colorGris"
+                android:labelFor="@id/editText3"
+                android:layout_width="336dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="11dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/texto_correo" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:textColor="@color/colorGris"
+                android:labelFor="@id/editText4"
+                android:layout_width="336dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginStart="11dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/texto_nombre" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="336dp"
+                android:textColor="@color/colorGris"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="11dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:labelFor="@id/editText5"
+                android:hint="@string/texto_apellido" />
+
+            <EditText
+                android:id="@+id/editText6"
+                android:labelFor="@id/editText6"
+                android:layout_width="336dp"
+                android:textColor="@color/colorGris"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginStart="11dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/texto_contraseña" />
+
+            <EditText
+                android:id="@+id/editText7"
+                android:labelFor="@id/editText7"
+                android:layout_width="336dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginStart="11dp"
+                android:ems="10"
+                android:textColor="@color/colorGris"
+                android:inputType="textPersonName"
+                android:hint="@string/texto_conf_contra" />
+
+            <EditText
+                android:labelFor="@id/editText8"
+                android:id="@+id/editText8"
+                android:layout_width="336dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGris"
+                android:layout_marginTop="11dp"
+                android:layout_marginStart="11dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/texto_documento" />
+
+            <EditText
+                android:labelFor="@id/editText9"
+                android:id="@+id/editText9"
+                android:layout_width="336dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginStart="11dp"
+                android:ems="10"
+                android:textColor="@color/colorGris"
+                android:inputType="textPersonName"
+                android:hint="@string/texto_telefono" />
+
+            <EditText
+                android:id="@+id/editText10"
+                android:labelFor="@id/editText10"
+                android:layout_width="336dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:textColor="@color/colorGris"
+                android:layout_marginStart="11dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/texto_direccion" />
+
+            <EditText
+                android:id="@+id/editText11"
+                android:labelFor="@id/editText11"
+                android:layout_width="336dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginStart="11dp"
+                android:ems="10"
+                android:textColor="@color/colorGris"
+                android:inputType="textPersonName"
+                android:hint="@string/texto_ciudad" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:entries="@array/combo_tipo"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="11dp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
