@@ -1,9 +1,11 @@
-package com.tecnoinfsanjose.tareaandroiduno;
+package com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.tecnoinfsanjose.tareaandroiduno.R;
 
 public class ActivityPantallaCarga extends AppCompatActivity {
 

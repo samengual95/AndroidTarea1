@@ -1,50 +1,52 @@
-package com.tecnoinfsanjose.tareaandroiduno;
+package com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatDialog;
-import android.support.v7.app.AppCompatDialogFragment;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities.IActivityHome;
+import com.tecnoinfsanjose.tareaandroiduno.R;
+
+import java.util.Calendar;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link LogIn.OnFragmentInteractionListener} interface
+ * {@link HomeEmpleado.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link LogIn#newInstance} factory method to
+ * Use the {@link HomeEmpleado#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LogIn extends Fragment {
+public class HomeEmpleado extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-
     private OnFragmentInteractionListener mListener;
 
-    private TextView texto_registrarse;
-    private CardView entrar;
 
-    IActivityInicio iActivityInicio;
+    private Button boton_salir;
+    private Button boton_seleccionarFecha;
+    private Button boton_siguiente;
+    private int dia,mes,anio;
+    private TextView texto_fecha;
 
-
-
-    public LogIn() {
+    IActivityHome iActivityHome;
+    public HomeEmpleado() {
         // Required empty public constructor
     }
 
@@ -54,11 +56,11 @@ public class LogIn extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment LogIn.
+     * @return A new instance of fragment HomeEmpleado.
      */
     // TODO: Rename and change types and number of parameters
-    public static LogIn newInstance(String param1, String param2) {
-        LogIn fragment = new LogIn();
+    public static HomeEmpleado newInstance(String param1, String param2) {
+        HomeEmpleado fragment = new HomeEmpleado();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -79,19 +81,38 @@ public class LogIn extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_log_in, container, false);
-        texto_registrarse = view.findViewById(R.id.textView2);
-        texto_registrarse.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.fragment_home_empleado, container, false);
+        boton_salir = view.findViewById(R.id.button4);
+        boton_salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iActivityInicio.cambiarLoginARegistrarse();
+                //volver a ActivityInicio
             }
         });
-        entrar = view.findViewById(R.id.cardView);
-        entrar.setOnClickListener(new View.OnClickListener() {
+        boton_seleccionarFecha = view.findViewById(R.id.button5);
+        boton_seleccionarFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iActivityInicio.moverseActivityHome();
+                final Calendar c = Calendar.getInstance();
+                dia = c.get(Calendar.DAY_OF_MONTH);
+                mes = c.get(Calendar.MONTH);
+                anio = c.get(Calendar.YEAR);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        texto_fecha = view.findViewById(R.id.textView7);
+                        texto_fecha.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+                    }
+                },dia,mes,anio);
+                datePickerDialog.show();
+            }
+        });
+        boton_siguiente = view.findViewById(R.id.button6);
+        boton_siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iActivityHome.cambiarHomeAConfirmarEmpleado();
             }
         });
         return view;
@@ -108,14 +129,6 @@ public class LogIn extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        iActivityInicio = (IActivityInicio) getActivity();
-
-        /*if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }*/
     }
 
     @Override
@@ -134,6 +147,7 @@ public class LogIn extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
+
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

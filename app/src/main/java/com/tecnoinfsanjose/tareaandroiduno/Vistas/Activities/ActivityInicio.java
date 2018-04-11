@@ -1,12 +1,15 @@
-package com.tecnoinfsanjose.tareaandroiduno;
+package com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-public class ActivityInicio extends AppCompatActivity implements IActivityInicio{
+import com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments.LogIn;
+import com.tecnoinfsanjose.tareaandroiduno.R;
+import com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments.Registrarse;
+
+public class ActivityInicio extends AppCompatActivity implements IActivityInicio {
 
 
     @Override

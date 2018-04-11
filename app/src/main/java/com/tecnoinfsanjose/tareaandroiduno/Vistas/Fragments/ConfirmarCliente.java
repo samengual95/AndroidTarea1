@@ -1,30 +1,34 @@
-package com.tecnoinfsanjose.tareaandroiduno;
+package com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments;
 
-import android.app.DatePickerDialog;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.TextView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
-import java.util.Calendar;
+import com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities.IActivityHome;
+import com.tecnoinfsanjose.tareaandroiduno.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link HomeCliente.OnFragmentInteractionListener} interface
+ * {@link ConfirmarCliente.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link HomeCliente#newInstance} factory method to
+ * Use the {@link ConfirmarCliente#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeCliente extends Fragment {
+public class ConfirmarCliente extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -34,17 +38,14 @@ public class HomeCliente extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private ImageView imagen;
+    private Button boton_confirmar;
+    private ImageButton atras;
     private OnFragmentInteractionListener mListener;
-
-    private Button boton_salir;
-    Button boton_seleccionarFecha;
-    private Button boton_siguiente;
-    private int dia,mes,anio;
-    private TextView texto_fecha;
 
     IActivityHome iActivityHome;
 
-    public HomeCliente() {
+    public ConfirmarCliente() {
         // Required empty public constructor
     }
 
@@ -54,11 +55,11 @@ public class HomeCliente extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HomeCliente.
+     * @return A new instance of fragment ConfirmarCliente.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeCliente newInstance(String param1, String param2) {
-        HomeCliente fragment = new HomeCliente();
+    public static ConfirmarCliente newInstance(String param1, String param2) {
+        ConfirmarCliente fragment = new ConfirmarCliente();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -74,50 +75,34 @@ public class HomeCliente extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home_cliente, container, false);
-        texto_fecha = view.findViewById(R.id.textView4);
-        boton_seleccionarFecha = view.findViewById(R.id.button2);
-        boton_seleccionarFecha.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.fragment_confirmar_cliente, container, false);
+        imagen = view.findViewById(R.id.imageView3);
+        Drawable originalDrawable = getResources().getDrawable(R.mipmap.ic_launcher_round);
+        Bitmap originalBitMap = ((BitmapDrawable) originalDrawable).getBitmap();
+        RoundedBitmapDrawable roundedDrawable = RoundedBitmapDrawableFactory.create(getResources(), originalBitMap);
+        imagen.setImageDrawable(roundedDrawable);
+        atras = view.findViewById(R.id.imageButton2);
+        atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Calendar c = Calendar.getInstance();
-                dia = c.get(Calendar.DAY_OF_MONTH);
-                mes = c.get(Calendar.MONTH);
-                anio = c.get(Calendar.YEAR);
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        texto_fecha = view.findViewById(R.id.textView4);
-                        texto_fecha.setText(dayOfMonth+"/"+(month+1)+"/"+year);
-                    }
-                },dia,mes,anio);
-                datePickerDialog.show();
-            }
-        });
-
-        boton_salir = view.findViewById(R.id.button1);
-        boton_salir.setOnClickListener(new View.OnClickListener() {
+                iActivityHome.cargarHomeCliente();
+    }
+});
+        boton_confirmar = view.findViewById(R.id.button);
+        boton_confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //volver a ActivityInicio
-            }
-        });
-        boton_siguiente = view.findViewById(R.id.button3);
-        boton_siguiente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                iActivityHome.cambiarHomeAConfirmarCliente();
+                DialogoConfirmar nuevo = new DialogoConfirmar();
+                nuevo.show(getFragmentManager(),"dialogo");
             }
         });
         return view;
-
     }
-
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -125,8 +110,6 @@ public class HomeCliente extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
-
 
     @Override
     public void onAttach(Context context) {
@@ -139,8 +122,6 @@ public class HomeCliente extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
-
 
     /**
      * This interface must be implemented by activities that contain this

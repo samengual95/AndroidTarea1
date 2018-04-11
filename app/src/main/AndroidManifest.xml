@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme.NoActionBar" >
 
         <!-- PANTALLA DE CARGA -->
-        <activity android:name=".ActivityPantallaCarga">
+        <activity android:name=".Vistas.Activities.ActivityPantallaCarga">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,11 +20,11 @@
         </activity>
 
         <!-- PANTALLA INICIO (Login y Registro) -->
-        <activity android:name=".ActivityInicio">
+        <activity android:name=".Vistas.Activities.ActivityInicio">
 
         </activity>
         <!-- PANTALLA DE HOMES -->
-        <activity android:name=".ActivityHome">
+        <activity android:name=".Vistas.Activities.ActivityHome">
 
         </activity>
     </application>

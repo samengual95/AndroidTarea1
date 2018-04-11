@@ -1,4 +1,4 @@
-package com.tecnoinfsanjose.tareaandroiduno;
+package com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,6 +15,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities.IActivityHome;
+import com.tecnoinfsanjose.tareaandroiduno.R;
 
 
 /**

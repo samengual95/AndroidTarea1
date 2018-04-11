@@ -1,8 +1,14 @@
-package com.tecnoinfsanjose.tareaandroiduno;
+package com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments.CancelarEmpleado;
+import com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments.ConfirmarCliente;
+import com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments.HomeCliente;
+import com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments.HomeEmpleado;
+import com.tecnoinfsanjose.tareaandroiduno.R;
 
 public class ActivityHome extends AppCompatActivity implements IActivityHome {
 

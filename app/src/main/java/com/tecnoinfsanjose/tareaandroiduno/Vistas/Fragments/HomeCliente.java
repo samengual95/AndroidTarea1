@@ -1,5 +1,6 @@
-package com.tecnoinfsanjose.tareaandroiduno;
+package com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,19 +8,25 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.Toolbar;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.TextView;
+
+import com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities.IActivityHome;
+import com.tecnoinfsanjose.tareaandroiduno.R;
+
+import java.util.Calendar;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Registrarse.OnFragmentInteractionListener} interface
+ * {@link HomeCliente.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Registrarse#newInstance} factory method to
+ * Use the {@link HomeCliente#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Registrarse extends Fragment {
+public class HomeCliente extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,14 +36,17 @@ public class Registrarse extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
-    private ImageButton boton_atras;
-    private ImageButton boton_confirmar;
-    IActivityInicio iActivityInicio;
-
     private OnFragmentInteractionListener mListener;
 
-    public Registrarse() {
+    private Button boton_salir;
+    Button boton_seleccionarFecha;
+    private Button boton_siguiente;
+    private int dia,mes,anio;
+    private TextView texto_fecha;
+
+    IActivityHome iActivityHome;
+
+    public HomeCliente() {
         // Required empty public constructor
     }
 
@@ -46,11 +56,11 @@ public class Registrarse extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Registrarse.
+     * @return A new instance of fragment HomeCliente.
      */
     // TODO: Rename and change types and number of parameters
-    public static Registrarse newInstance(String param1, String param2) {
-        Registrarse fragment = new Registrarse();
+    public static HomeCliente newInstance(String param1, String param2) {
+        HomeCliente fragment = new HomeCliente();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,21 +76,50 @@ public class Registrarse extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_registrarse, container, false);
-        boton_atras = view.findViewById(R.id.imageButton3);
-        boton_atras.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.fragment_home_cliente, container, false);
+        texto_fecha = view.findViewById(R.id.textView4);
+        boton_seleccionarFecha = view.findViewById(R.id.button2);
+        boton_seleccionarFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iActivityInicio.abrirLogin();
+                final Calendar c = Calendar.getInstance();
+                dia = c.get(Calendar.DAY_OF_MONTH);
+                mes = c.get(Calendar.MONTH);
+                anio = c.get(Calendar.YEAR);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        texto_fecha = view.findViewById(R.id.textView4);
+                        texto_fecha.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+                    }
+                },dia,mes,anio);
+                datePickerDialog.show();
+            }
+        });
+
+        boton_salir = view.findViewById(R.id.button1);
+        boton_salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //volver a ActivityInicio
+            }
+        });
+        boton_siguiente = view.findViewById(R.id.button3);
+        boton_siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iActivityHome.cambiarHomeAConfirmarCliente();
             }
         });
         return view;
+
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -89,11 +128,12 @@ public class Registrarse extends Fragment {
         }
     }
 
+
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        iActivityInicio = (IActivityInicio) getActivity();
     }
 
     @Override
@@ -101,6 +141,8 @@ public class Registrarse extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+
 
     /**
      * This interface must be implemented by activities that contain this

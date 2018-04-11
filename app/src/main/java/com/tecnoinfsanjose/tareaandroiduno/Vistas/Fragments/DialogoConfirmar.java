@@ -1,4 +1,4 @@
-package com.tecnoinfsanjose.tareaandroiduno;
+package com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments;
 
 
 import android.app.Dialog;
@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.tecnoinfsanjose.tareaandroiduno.R;
 
 /**
  * A simple {@link Fragment} subclass.

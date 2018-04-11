@@ -7,7 +7,7 @@
     android:id="@+id/LayoutInicio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tecnoinfsanjose.tareaandroiduno.ActivityInicio"
+    tools:context="com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities.ActivityInicio"
     android:theme="@style/AppTheme.NoActionBar"
     android:background="@color/colorFondo">
 
