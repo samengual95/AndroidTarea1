@@ -15,9 +15,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.tecnoinfsanjose.tareaandroiduno.DataTypes.EmpleadoDataType;
 import com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities.IActivityHome;
 import com.tecnoinfsanjose.tareaandroiduno.R;
+
+import static com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments.ConfirmarCliente.getRoundedCornerBitmap;
 
 
 /**
@@ -41,6 +45,8 @@ public class CancelarEmpleado extends Fragment {
     private ImageView imagen;
     private Button boton_cancelar;
     private ImageButton atras;
+    private TextView nombre_cliente;
+    private TextView fecha;
     private OnFragmentInteractionListener mListener;
 
     IActivityHome iActivityHome;
@@ -82,10 +88,7 @@ public class CancelarEmpleado extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_confirmar_empleado, container, false);
         imagen = view.findViewById(R.id.imageView4);
-        Drawable originalDrawable = getResources().getDrawable(R.mipmap.ic_launcher_round);
-        Bitmap originalBitMap = ((BitmapDrawable) originalDrawable).getBitmap();
-        RoundedBitmapDrawable roundedDrawable = RoundedBitmapDrawableFactory.create(getResources(), originalBitMap);
-        imagen.setImageDrawable(roundedDrawable);
+        imagen.setImageBitmap(getRoundedCornerBitmap(getResources().getDrawable(R.drawable.ic_action_user), true));
         atras = view.findViewById(R.id.imageButton8);
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,11 +96,18 @@ public class CancelarEmpleado extends Fragment {
                 iActivityHome.cargarHomeEmpleado();
             }
         });
+        EmpleadoDataType emp = (EmpleadoDataType) getActivity().getIntent().getExtras().getSerializable("empleado");
+        String fechita = (String) getActivity().getIntent().getExtras().get("fecha");
+        nombre_cliente = view.findViewById(R.id.textView6);
+        nombre_cliente.setText(emp.getNombre());
+        fecha = view.findViewById(R.id.textView8);
+        fecha.setText(fechita);
         boton_cancelar = view.findViewById(R.id.button7);
         boton_cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Mostrar dialog_fragment_confirmacion
+                DialogoConfirmarEmpleado nuevo = new DialogoConfirmarEmpleado();
+                nuevo.show(getFragmentManager(),"dialogo1");
             }
         });
         return view;
@@ -113,6 +123,8 @@ public class CancelarEmpleado extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
+        iActivityHome = (IActivityHome) getActivity();
     }
 
     @Override

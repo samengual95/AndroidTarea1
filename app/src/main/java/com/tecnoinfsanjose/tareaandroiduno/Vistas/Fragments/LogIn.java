@@ -1,6 +1,8 @@
 package com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,8 +10,11 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.tecnoinfsanjose.tareaandroiduno.Controladores.ClienteControlador;
+import com.tecnoinfsanjose.tareaandroiduno.Controladores.EmpleadoControlador;
 import com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities.IActivityInicio;
 import com.tecnoinfsanjose.tareaandroiduno.R;
 
@@ -38,10 +43,18 @@ public class LogIn extends Fragment {
 
     private TextView texto_registrarse;
     private CardView entrar;
+    private EditText texto_mail,texto_password;
 
     IActivityInicio iActivityInicio;
 
-
+    public String getMail(){
+        texto_mail = getView().findViewById(R.id.editText);
+        return texto_mail.getText().toString();
+    }
+    public String getPassword(){
+        texto_password = getView().findViewById(R.id.editText2);
+        return texto_password.getText().toString();
+    }
 
     public LogIn() {
         // Required empty public constructor
@@ -90,7 +103,27 @@ public class LogIn extends Fragment {
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iActivityInicio.moverseActivityHome();
+                try{
+                    ClienteControlador clienteControlador = new ClienteControlador();
+                    EmpleadoControlador empleadoControlador = new EmpleadoControlador();
+                    if(clienteControlador.buscarCliente(getMail())){
+                        clienteControlador.inicioSesion(getMail(), getPassword());
+                        iActivityInicio.moverseActivityHomeCliente(clienteControlador.datosCliente(getMail()));
+                    }
+                    else{
+                        if(empleadoControlador.buscarEmpleado(getMail())){
+                            empleadoControlador.inicioSesion(getMail(),getPassword());
+                            iActivityInicio.moverseActivityHomeEmpleado(empleadoControlador.datosEmpleado(getMail()));
+                        }
+                        else throw new Exception("El e-mail ingresado no esta registrado.");
+                    }
+                }catch (Exception e){
+                    android.support.v7.app.AlertDialog alerta= new android.support.v7.app.AlertDialog.Builder(getActivity()).create();
+                    alerta.setTitle("Error");
+                    alerta.setMessage(e.getMessage());
+                    alerta.setCancelable(true);
+                    alerta.show();
+                }
             }
         });
         return view;
@@ -108,13 +141,6 @@ public class LogIn extends Fragment {
         super.onAttach(context);
 
         iActivityInicio = (IActivityInicio) getActivity();
-
-        /*if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }*/
     }
 
     @Override

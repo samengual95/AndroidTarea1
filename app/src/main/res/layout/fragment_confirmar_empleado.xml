@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="TextView" />
+        android:text="@string/prueba_nombre" />
 
     <TextView
         android:id="@+id/textView8"
@@ -55,7 +55,7 @@
         android:layout_alignStart="@+id/textView6"
         android:layout_below="@+id/textView6"
         android:layout_marginTop="35dp"
-        android:text="TextView" />
+        android:text="@string/prueba_fecha" />
 
     <Button
         android:id="@+id/button7"

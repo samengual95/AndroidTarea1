@@ -36,7 +36,8 @@
         android:layout_below="@+id/toolbar_fragment_home_empleado"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="178dp"
-        android:text="" />
+        android:text="@string/string_fecha"
+        android:textColor="@color/colorGristClaro"/>
 
     <Button
         android:id="@+id/button5"

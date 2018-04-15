@@ -12,4 +12,6 @@ public interface IActivityHome {
 
     public void cambiarHomeAConfirmarEmpleado();
 
+    public void volverActivityInicio();
+
 }

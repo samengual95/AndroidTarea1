@@ -31,9 +31,14 @@
     <string name="boton_cancelar">Cancelar</string>
     <string name="img_usuarios">img_usuarios</string>
     <string name="titulo">Confirmar</string>
+    <string name="titulo1">Cancelar</string>
     <string name="mensaje_cliente">¿Confirmar reserva?</string>
     <string name="mensaje_empleado">¿Cancelar reserva?</string>
     <string name="boton_si">Si</string>
     <string name="boton_no">No</string>
     <string name="boton_confirmar">Confirmar</string>
+    <string name="boton_ok">Ok</string>
+    <string name="string_fecha">Aquí va su fecha.</string>
+    <string name="prueba_nombre">Nombre</string>
+    <string name="prueba_fecha">Fecha</string>
 </resources>

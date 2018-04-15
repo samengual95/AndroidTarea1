@@ -1,5 +1,6 @@
 package com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -54,4 +55,12 @@ public class ActivityHome extends AppCompatActivity implements IActivityHome {
         fragmentTransaction.replace(R.id.frame_contenedor_home,nuevo);
         fragmentTransaction.commit();
     }
+
+    @Override
+    public void volverActivityInicio() {
+        Intent intent = new Intent(ActivityHome.this , ActivityInicio.class);
+        startActivity(intent);
+    }
+
+
 }

@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar_fragment_home_cliente"
         android:layout_centerHorizontal="true"
+        android:text="@string/string_fecha"
         android:layout_marginTop="178dp" />
 
     <Button

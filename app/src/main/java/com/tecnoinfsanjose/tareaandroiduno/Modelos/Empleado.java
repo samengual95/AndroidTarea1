@@ -10,6 +10,12 @@ public class Empleado {
     private String password;
     private String documento;
     private String telefono;
+    private String direccion;
+    private String ciudad;
+    private String tipo;
+
+    public Empleado() {}
+
 
     public String getEmail() {
         return email;
@@ -83,7 +89,4 @@ public class Empleado {
         this.tipo = tipo;
     }
 
-    private String direccion;
-    private String ciudad;
-    private String tipo;
 }

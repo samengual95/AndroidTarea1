@@ -82,11 +82,12 @@ public class HomeEmpleado extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_empleado, container, false);
+        texto_fecha = view.findViewById(R.id.textView7);
         boton_salir = view.findViewById(R.id.button4);
         boton_salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //volver a ActivityInicio
+                iActivityHome.volverActivityInicio();
             }
         });
         boton_seleccionarFecha = view.findViewById(R.id.button5);
@@ -101,8 +102,8 @@ public class HomeEmpleado extends Fragment {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        texto_fecha = view.findViewById(R.id.textView7);
                         texto_fecha.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+                        getActivity().getIntent().putExtra("fecha",texto_fecha.getText());
                     }
                 },dia,mes,anio);
                 datePickerDialog.show();
@@ -128,6 +129,7 @@ public class HomeEmpleado extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        iActivityHome = (IActivityHome) getActivity();
 
     }
 

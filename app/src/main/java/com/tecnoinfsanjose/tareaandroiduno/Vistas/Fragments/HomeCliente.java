@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import com.tecnoinfsanjose.tareaandroiduno.DataTypes.ClienteDataType;
 import com.tecnoinfsanjose.tareaandroiduno.Vistas.Activities.IActivityHome;
 import com.tecnoinfsanjose.tareaandroiduno.R;
 
@@ -82,6 +83,7 @@ public class HomeCliente extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_cliente, container, false);
         texto_fecha = view.findViewById(R.id.textView4);
+        ClienteDataType c = (ClienteDataType) getActivity().getIntent().getExtras().getSerializable("cliente");
         boton_seleccionarFecha = view.findViewById(R.id.button2);
         boton_seleccionarFecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,8 +96,8 @@ public class HomeCliente extends Fragment {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        texto_fecha = view.findViewById(R.id.textView4);
                         texto_fecha.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+                        getActivity().getIntent().putExtra("fecha",texto_fecha.getText());
                     }
                 },dia,mes,anio);
                 datePickerDialog.show();
@@ -106,7 +108,7 @@ public class HomeCliente extends Fragment {
         boton_salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //volver a ActivityInicio
+                iActivityHome.volverActivityInicio();
             }
         });
         boton_siguiente = view.findViewById(R.id.button3);
@@ -133,7 +135,7 @@ public class HomeCliente extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
+        iActivityHome = (IActivityHome) getActivity();
     }
 
     @Override

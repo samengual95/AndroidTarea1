@@ -14,6 +14,8 @@ public class Cliente {
     private String ciudad;
     private String tipo;
 
+    public Cliente() {}
+
     public String getEmail() {
         return email;
     }

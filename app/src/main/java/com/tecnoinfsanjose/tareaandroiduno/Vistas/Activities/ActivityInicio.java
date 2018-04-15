@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import com.tecnoinfsanjose.tareaandroiduno.DataTypes.ClienteDataType;
+import com.tecnoinfsanjose.tareaandroiduno.DataTypes.EmpleadoDataType;
 import com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments.LogIn;
 import com.tecnoinfsanjose.tareaandroiduno.R;
 import com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments.Registrarse;
@@ -40,8 +42,15 @@ public class ActivityInicio extends AppCompatActivity implements IActivityInicio
     }
 
     @Override
-    public void moverseActivityHome() {
+    public void moverseActivityHomeCliente(ClienteDataType c) {
         Intent intent = new Intent(ActivityInicio.this,ActivityHome.class);
+        intent.putExtra("cliente",c);
+        startActivity(intent);
+    }
+    @Override
+    public void moverseActivityHomeEmpleado(EmpleadoDataType e){
+        Intent intent = new Intent(ActivityInicio.this,ActivityHome.class);
+        intent.putExtra("empleado",e);
         startActivity(intent);
     }
 }

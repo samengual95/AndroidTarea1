@@ -31,7 +31,7 @@
         android:labelFor="@+id/editText"
         android:hint="@string/texto_username"
         android:inputType="textPersonName"
-        android:textColor="@color/colorBlanco"/>
+        android:textColorHint="@color/colorBlanco"/>
 
     <EditText
         android:id="@+id/editText2"
@@ -43,8 +43,7 @@
         android:drawableStart="@drawable/ic_action_password"
         android:ems="10"
         android:hint="@string/texto_Password"
-        android:textColor="@color/colorBlanco"
-        android:background="@color/colorFondo"/>
+        android:textColorHint="@color/colorBlanco"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
