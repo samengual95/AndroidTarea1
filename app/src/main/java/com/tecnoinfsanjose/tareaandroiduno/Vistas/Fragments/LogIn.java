@@ -41,7 +41,7 @@ public class LogIn extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    private TextView texto_registrarse;
+    private TextView texto_registrarse,texto_listar_usuarios;
     private CardView entrar;
     private EditText texto_mail,texto_password;
 
@@ -97,6 +97,13 @@ public class LogIn extends Fragment {
             @Override
             public void onClick(View v) {
                 iActivityInicio.cambiarLoginARegistrarse();
+            }
+        });
+        texto_listar_usuarios = view.findViewById(R.id.textView11);
+        texto_listar_usuarios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iActivityInicio.cambiarLoginAListarUsuarios();
             }
         });
         entrar = view.findViewById(R.id.cardView);

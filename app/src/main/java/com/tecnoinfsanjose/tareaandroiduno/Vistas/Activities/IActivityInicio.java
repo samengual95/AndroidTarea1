@@ -10,6 +10,8 @@ public interface IActivityInicio {
 
     public void cambiarLoginARegistrarse();
 
+    public void cambiarLoginAListarUsuarios();
+
     public void moverseActivityHomeCliente(ClienteDataType c);
 
     public void moverseActivityHomeEmpleado(EmpleadoDataType e);

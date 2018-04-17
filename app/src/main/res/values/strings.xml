@@ -41,4 +41,6 @@
     <string name="string_fecha">Aquí va su fecha.</string>
     <string name="prueba_nombre">Nombre</string>
     <string name="prueba_fecha">Fecha</string>
+    <string name="prueba_ape">Apellido</string>
+    <string name="listar_usuarios">LISTAR USUARIOS REGISTRADOS.</string>
 </resources>

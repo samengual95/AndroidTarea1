@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/editText"
         android:layout_below="@+id/editText"
+        android:password="true"
         android:layout_marginTop="26dp"
         android:drawableStart="@drawable/ic_action_password"
         android:ems="10"
@@ -60,7 +61,9 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_alignStart="@+id/cardView"
+            android:layout_below="@+id/editText2">
 
             <TextView
                 android:id="@+id/textView"
@@ -76,14 +79,26 @@
 
     <TextView
         android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="11dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/texto_registrarse"
         android:textColor="@android:color/background_light"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cardView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
         android:clickable="true"
-        android:text="@string/texto_registrarse"
-        android:textSize="18sp"
-        android:focusable="true" />
+        android:focusable="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:textColor="@android:color/background_light"
+        android:text="@string/listar_usuarios" />
 </RelativeLayout>

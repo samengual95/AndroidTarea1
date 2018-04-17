@@ -4,6 +4,8 @@ import com.tecnoinfsanjose.tareaandroiduno.Controladores.DAOs.ClienteDAO;
 import com.tecnoinfsanjose.tareaandroiduno.DataTypes.ClienteDataType;
 import com.tecnoinfsanjose.tareaandroiduno.Modelos.Cliente;
 
+import java.util.ArrayList;
+
 
 public class ClienteControlador {
 
@@ -56,6 +58,14 @@ public class ClienteControlador {
 
     public Boolean buscarCliente(String mail){
         return clienteDAO.buscarCliente(mail);
+    }
+
+    public Cliente retornoClienteSesion(String mail){
+        return clienteDAO.retornoCliente(mail);
+    }
+
+    public ArrayList<Cliente> darClientes(){
+        return clienteDAO.darClientes();
     }
 }
 

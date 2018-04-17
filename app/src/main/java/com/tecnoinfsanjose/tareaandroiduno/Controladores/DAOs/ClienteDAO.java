@@ -5,6 +5,8 @@ import com.tecnoinfsanjose.tareaandroiduno.Controladores.BD.ClienteBD;
 import com.tecnoinfsanjose.tareaandroiduno.DataTypes.ClienteDataType;
 import com.tecnoinfsanjose.tareaandroiduno.Modelos.Cliente;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ClienteDAO {
@@ -40,6 +42,19 @@ public class ClienteDAO {
             }
         }
         return null;
+    }
+    public Cliente retornoCliente(String mail){
+        Iterator iterator = clienteBD.getClientes().iterator();
+        while(iterator.hasNext()){
+            Cliente c = (Cliente) iterator.next();
+            if(c.getEmail().equals(mail)){
+                return c;
+            }
+        }
+        return null;
+    }
+    public ArrayList<Cliente> darClientes(){
+        return clienteBD.getClientes();
     }
 
     public ClienteDAO() {

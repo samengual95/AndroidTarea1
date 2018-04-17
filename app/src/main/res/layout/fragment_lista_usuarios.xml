@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.tecnoinfsanjose.tareaandroiduno.Vistas.Fragments.ListaUsuarios">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_fragment_listar_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorFondoToolbar"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
+    <ListView
+        android:id="@+id/lvUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar_fragment_listar_usuario" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/colorFondoToolbar"
+        android:src="@drawable/atras_toolbar" />
+
+
+</RelativeLayout>
